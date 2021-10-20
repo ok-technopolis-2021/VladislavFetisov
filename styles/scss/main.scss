@@ -1,5 +1,8 @@
 //@import "reset.scss";
-
+@import "colors";
+body{
+  background-color:var(--bg-color);
+}
 .p-card {
   &_left-info {
     width: 29%;
