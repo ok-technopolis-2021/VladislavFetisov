@@ -1,0 +1,9 @@
+document.addEventListener("DOMContentLoaded", function (event) {
+    document.body.addEventListener("click", function () {
+        if (document.body.classList.contains("light-theme")) {
+            document.body.classList.replace("light-theme", "dark-theme");
+        } else {
+            document.body.classList.replace("dark-theme", "light-theme");
+        }
+    });
+});
