@@ -1,13 +1,12 @@
-
 .progress {
   width: 95%;
-  background: rgba(0, 0, 0, 0.2);
+  background-color: #303245;
   justify-content: flex-start;
   border-radius: 100px;
   align-items: center;
   position: relative;
   display: flex;
-  height: 10px;
+  height: 20px;
   margin-bottom: 5px;
 }
 
@@ -15,8 +14,8 @@
   animation: some 3s normal forwards;
   box-shadow: 0 10px 40px -10px #fff;
   border-radius: 100px;
-  background: Black;
-  height: 10px;
+  background-color: #06b;
+  height: 20px;
 }
 
 @keyframes some {
@@ -33,14 +32,6 @@
   justify-content: space-between;
   width: 95%;
 
-}
-
-.small-circle2 {
-  background-image: url("src/assets/minus.png");
-  background-size: cover;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
 }
 
 .skills {
@@ -61,4 +52,141 @@
     justify-content: space-between;
     margin-right: 10px;
   }
+
+  &_info {
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  &_node {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
+.form {
+  background-color: #15172b;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 500px;
+  padding: 20px;
+  width: 320px;
+}
+
+.modal_title {
+  color: #eee;
+  font-family: sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-left: 5px;
+}
+
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 10px;
+}
+
+.ic2 {
+  margin-top: 30px;
+}
+
+.input {
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+
+.cut {
+  background-color: #15172b;
+  border-radius: 10px;
+  height: 20px;
+  left: 20px;
+  position: absolute;
+  top: -20px;
+  transform: translateY(0);
+  transition: transform 200ms;
+  width: 76px;
+}
+
+.cut-short {
+  width: 50px;
+}
+
+.input:focus ~ .cut,
+.input:not(:placeholder-shown) ~ .cut {
+  transform: translateY(8px);
+}
+
+.placeholder {
+  color: #65657b;
+  font-family: sans-serif;
+  left: 20px;
+  line-height: 14px;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 0 50%;
+  transition: transform 200ms, color 200ms;
+  top: 20px;
+}
+
+.input:focus ~ .placeholder,
+.input:not(:placeholder-shown) ~ .placeholder {
+  transform: translateY(-30px) translateX(10px) scale(0.75);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  //margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+.input:not(:placeholder-shown) ~ .placeholder {
+  color: #808097;
+}
+
+.input:focus ~ .placeholder {
+  color: #dc2f55;
+}
+
+.submit {
+  background-color: #08d;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 30px;
+  margin-top: 20px;
+  // outline: 0;
+  text-align: center;
+
+  &_skills {
+    width: 70%;
+  }
+  &_cv{
+    width: 15%;
+  }
+}
+
+.submit:active {
+  background-color: #06b;
 }

@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
     let modal = document.getElementsByClassName("modal")[0];
     let skill = new Skill();
     let into = document.getElementsByClassName("skills_wrapper")[0];
-    skill.insert(into, "some2", 95);
-    skill.insert(into, "some3", 100);
-    skill.insert(into, "some1", 50);
-    document.getElementsByClassName("right-info_btn-skills")[0].addEventListener("click", function () {
+    skill.insert(into, "Eat", 95);
+    skill.insert(into, "Sleep", 100);
+    skill.insert(into, "EatAfterSleep", 50);
+    document.getElementById("skill-btn").addEventListener("click", function () {
         modal.classList.add('active');
     });
     document.getElementsByClassName("modal_close-button")[0].addEventListener("click", function () {
@@ -38,16 +38,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
 class Skill {
 
     insert(element, name, percents) {
-        const namePercentsButton = `<div class="skill_description"><div>${name}</div><div>${percents}%</div></div>`;
-        const progressBar = `<div class="progress"><div class="progress-value"  style="max-width: ${percents}%"></div></div>`;
-        let wrapper = `<div style="width: 100%"><div>${namePercentsButton}</div><div>${progressBar}</div></div>`;
+        const namePercentsButton = `<div class="skill_description"><div class="skills_info">${name}</div><div class="skills_info">${percents}%</div></div>`;
+        const progressBar = `<div class="progress"><div class="progress-value" style="max-width: ${percents}%"></div></div>`;
+        let wrapper = `<div class="skills_node"><div>${namePercentsButton}</div><div>${progressBar}</div></div>`;
 
         let btn = document.createElement('input');
         btn.type = "image";
         btn.src = 'assets/minus.png';
-        btn.width = 25;
-        btn.height = 25;
-        btn.onclick = function (){
+        btn.width = 30;
+        btn.height = 30;
+        btn.style.marginTop = "25px";
+        btn.onclick = function () {
             remove(btn);
         };
 
