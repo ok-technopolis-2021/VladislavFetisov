@@ -1,0 +1,62 @@
+
+.progress {
+  width: 95%;
+  background: rgba(0, 0, 0, 0.2);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  display: flex;
+  height: 10px;
+  margin-bottom: 5px;
+}
+
+.progress-value {
+  animation: some 3s normal forwards;
+  box-shadow: 0 10px 40px -10px #fff;
+  border-radius: 100px;
+  background: Black;
+  height: 10px;
+}
+
+@keyframes some {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.skill_description {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+
+}
+
+.small-circle2 {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+
+.skills {
+  display: flex;
+  justify-content: start;
+  margin-left: 5px;
+
+  &_wrapper {
+    width: 60%;
+  }
+
+  &_form {
+    width: 40%;
+  }
+
+  &_button {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+  }
+}

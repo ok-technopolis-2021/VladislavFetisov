@@ -15,13 +15,13 @@
             <div class="wrapper_profession">Java Programmer</div>
             <div class="wrapper_links-list links-list">
                 <a href="https://github.com/VladislavFetisov">
-                    <img src="./assets/github-icon.svg" class="links-list_small-circle" alt="git">
+                    <img src="./assets/github-icon.svg" class="links-list small-circle" alt="git">
                 </a>
                 <a href="https://vk.com/1cockbig19">
-                    <img src="./assets/vk.png" class="links-list_small-circle" alt="vk">
+                    <img src="./assets/vk.png" class="links-list small-circle" alt="vk">
                 </a>
                 <a href="https://www.hackerrank.com/fetisov2_vv">
-                    <img src="./assets/hackerrank.png" class="links-list_small-circle" alt="hackerrank">
+                    <img src="./assets/hackerrank.png" class="links-list small-circle" alt="hackerrank">
                 </a>
             </div>
         </div>
@@ -33,6 +33,29 @@
     <div class="p-card_right-info right-info">
         <div class="right-info_name">Vladislav Fetisov</div>
         <div class="right-info_profession">Java Programmer</div>
+        <input type="button" class="right-info_btn-skills" value="Skills">
+        <div class="modal">
+            <div class="modal_content">
+                <button class="modal_close-button"><img src="./assets/cross.webp" width="18" alt=""></button>
+                <h1 class="modal_title">Coding skills:</h1>
+                <div class="skills">
+                    <div class="skills_wrapper"></div>
+                    <form class="skills_form" action="" id="form">
+                        <div>
+                            <input type="text" name="skillName" id="skillName" placeholder=" " autocomplete="off"
+                                   required/>
+                            <label for="skillName">Skill</label>
+                        </div>
+                        <div>
+                            <input type="number" max="100" min="0" name="progress" id="progress" placeholder=" "
+                                   autocomplete="off" required/>
+                            <label for="progress">Progress(%)</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-ghost">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- inject:js -->

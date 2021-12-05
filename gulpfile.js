@@ -5,7 +5,7 @@ const inject = require('gulp-inject');
 const rollup = require('rollup');
 const image = require('gulp-image');
 
-const assetsPath = 'src/assets/.{svg,png,cv,jpg}';
+const assetsPath = 'src/assets/*.{svg,png,cv,jpg,webp}';
 const stylesPath = './src/styles/**/*.scss';
 const jsPath = 'src/**/*.js';
 const htmlPath = './src/index.html';
@@ -44,9 +44,9 @@ gulp.task('rollup', async (done) => {
 });
 
 /**
-* Простая задача на компиляцию scss файлов в файл style.css, ее отличие от rollup плагина rollup-plugin-scss
-* в том, что файлы подключаются по маске, а в rollup они подключаются явно через import
-**/
+ * Простая задача на компиляцию scss файлов в файл style.css, ее отличие от rollup плагина rollup-plugin-scss
+ * в том, что файлы подключаются по маске, а в rollup они подключаются явно через import
+ **/
 gulp.task('css', () => {
     return gulp.src(stylesPath)
         .pipe(less())
@@ -55,10 +55,12 @@ gulp.task('css', () => {
 });
 
 /**
-* Вотчинг всех файлов которые мы
-**/
+ * Вотчинг всех файлов которые мы
+ **/
 gulp.task('watch', function (done) {
     gulp.watch(stylesPath, gulp.series('css'));
+    gulp.watch(stylesPath, gulp.series('html'));
+    gulp.watch(stylesPath, gulp.series('assets'));
     gulp.watch(jsPath, gulp.series('rollup'));
     done();
 });
@@ -75,13 +77,14 @@ gulp.task('assets', function () {
 /**
  * Описание задачи на вставку js & css файлов в наш шаблон index.html
  */
- gulp.task('html', function () {
+gulp.task('html', function () {
     const target = gulp.src(htmlPath);
-    const sources = gulp.src(['./dist/**/*.js', './dist/**/*.css'], { read: false });
+    const sources = gulp.src(['./dist/**/*.js', './dist/**/*.css'], {read: false});
 
-    return target.pipe(inject(sources, { ignorePath: '../dist', relative: true, addPrefix: '.' }))
+    return target.pipe(inject(sources, {ignorePath: '../dist', relative: true, addPrefix: '.'}))
         .pipe(gulp.dest(distPath));
 });
 
-gulp.task('default', gulp.series('rollup', 'css', 'assets', 'html', 'watch'));
-gulp.task('build', gulp.series('rollup', 'css', 'assets', 'html'));
+gulp.task('default', gulp.series('rollup', 'css', 'html', 'watch'));
+gulp.task('build', gulp.series('rollup', 'css', 'html'));
+//'assets'
