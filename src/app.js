@@ -39,13 +39,17 @@ class Skill {
 
     insert(element, name, percents) {
         const namePercentsButton = `<div class="skill_description"><div>${name}</div><div>${percents}%</div></div>`
-        const progressBar = `<div class="progress"><div class="progress-value" style="max-width: ${percents}%"></div></div>`
+        const progressBar = `<div class="progress"><div class="progress-value"  style="max-width: ${percents}%"></div></div>`
         let wrapper = `<div style="width: 100%"><div>${namePercentsButton}</div><div>${progressBar}</div></div>`
 
-        let btn = document.createElement('button');
-        btn.classList.add("small-circle2")
-        btn.addEventListener('click', remove, false);
-        btn.innerHTML =`<img class="small-circle" src="./assets/minus.png" alt="Remove skill">`;
+        let btn = document.createElement('input');
+        btn.type = "image"
+        btn.src = 'assets/minus.png';
+        btn.width = 25;
+        btn.height = 25;
+        btn.onclick = function (){
+            remove(btn);
+        }
 
         let skillsButton = document.createElement("div");
         skillsButton.classList.add("skills_button");
@@ -58,5 +62,5 @@ class Skill {
 
 function remove(e) {
     let parent = document.getElementsByClassName("skills_wrapper")[0];
-    parent.removeChild(e.target.parentNode.parentNode);
+    parent.removeChild(e.parentNode);
 }

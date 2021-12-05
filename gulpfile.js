@@ -86,5 +86,4 @@ gulp.task('html', function () {
 });
 
 gulp.task('default', gulp.series('rollup', 'css', 'html', 'watch'));
-gulp.task('build', gulp.series('rollup', 'css', 'html'));
-//'assets'
+gulp.task('build', gulp.series('rollup', 'assets','css', 'html'));
