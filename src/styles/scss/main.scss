@@ -1,7 +1,8 @@
 @import "reset.scss";
-@import "colors.scss";
-body{
-  background-color:var(--bg-color);
+@import "skills.scss";
+
+body {
+  background-color: var(--bg-color);
   font-family: Helvetica, serif;
   font-style: normal;
   font-weight: normal;
@@ -40,12 +41,14 @@ body{
 
   &_cv-button {
   }
+
   &_copyright {
     line-height: 16px;
     text-align: center;
     color: #FFFFFF;
     margin-bottom: 12px;
   }
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -68,10 +71,74 @@ body{
     color: #FFFFFF;
   }
 
+  &_btn-skills {
+    margin-top: 40px;
+    color: grey;
+  }
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  visibility: hidden;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: scroll;
+  padding: 60px 15px;
+
+  &_content {
+    background: #222222;
+    border-radius: 3px;
+    position: relative;
+    box-shadow: 0 5px 15px black;
+    width: 600px;
+  }
+
+  &_close-button {
+    background: #ff0000;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    cursor: pointer;
+    transition: .3s;
+    outline: none;
+  }
+
+  &_close-button:hover {
+    transition: .3s;
+    transform: rotate(180deg);
+  }
+
+  &_title {
+    font-size: 18px;
+    margin: 0 0 15px;
+  }
+
+  &_description {
+    font-size: 1.125rem;
+  }
+}
+
+.active {
+  visibility: visible;
 }
 
 .wrapper {
@@ -113,18 +180,17 @@ body{
   flex-direction: column;
 }
 
-
 .links-list {
-  &_small-circle {
-    width: 24px;
-    height: 24px;
-    background: #C4C4C4;
-    border-radius: 50%;
-  }
-
   display: flex;
   justify-content: space-between;
   width: 92px;
+}
+
+.small-circle {
+  width: 24px;
+  height: 24px;
+  background: #C4C4C4;
+  border-radius: 50%;
 }
 
 .cv-button {
@@ -147,7 +213,8 @@ body{
   height: 20px;
   color: #FFFFFF;
 }
-a{
+
+a {
   color: white;
   text-decoration: none;
 }
